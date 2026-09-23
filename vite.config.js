@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Zuhoor_web_prototype/',
+  base: '/ict-fashion-demo/',
 })
