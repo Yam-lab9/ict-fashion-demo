@@ -17,7 +17,9 @@ Build output: `dist/`. All local source/assets/configuration are included. `node
 
 ## Deployment
 
-The existing GitHub Pages base `/Zuhoor_web_prototype/` is intentionally retained in `vite.config.js` so publishing to the same repository does not break. This is the only retained original-brand identifier. The existing `predeploy` / `deploy` commands are preserved; `npm run deploy` requires your authorized Git remote. Nothing has been pushed or deployed.
+GitHub Pages serves this repository at https://yam-lab9.github.io/ict-fashion-demo/. The Vite base is `/ict-fashion-demo/` so generated asset and favicon URLs resolve under that project path.
+
+In the repository's **Settings → Pages → Build and deployment → Source**, select **GitHub Actions**. The workflow in `.github/workflows/main.yml` installs dependencies with `npm ci`, builds with `npm run build`, and deploys `dist/` on pushes to `main`. It can also be run manually from the Actions tab. The existing `predeploy` / `deploy` scripts are retained as legacy commands; they are not used by this workflow.
 
 For a different host at its domain root, build with `npm run build -- --base=/`. For a different subdirectory supply that path with `--base`. The favicon uses Vite's BASE_URL so it follows deployment configuration.
 
