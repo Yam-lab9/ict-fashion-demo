@@ -1,6 +1,6 @@
 # Infinite Code Tech — Fashion E-commerce Demo
 
-Original fashion prototype rebranded for Infinite Code Tech (ICT). Text wordmarks and a text-only ICT favicon are used; neither is represented as an official logo.
+Original fashion prototype branded for Infinite Code Tech (ICT). Text wordmarks follow the official typography; the favicon reuses the official company asset.
 
 ## Run
 
@@ -27,10 +27,12 @@ For a different host at its domain root, build with `npm run build -- --base=/`.
 
 Client-side React 19 / Vite 8 app. Catalog, cart, coupons, orders and admin edits use in-memory state and reset on reload. No backend, admin authentication, payment processing, actual order placement or contact delivery is implemented. Existing unfinished controls remain as supplied. ICT10 replaces the original branded coupon.
 
-No verified ICT contact details were supplied. Contact placeholders preserve the UI. Wholesale, customization and admin messaging actions show a demo notice instead of opening unverified destinations. Social buttons retain their original placeholder behavior. Reviews, statistics, prices, delivery policies, catalog descriptions and sample orders are demo content, not claims about ICT's real business. No products, product swatch colors, product layouts or commerce logic were changed.
+Company contact details and links were verified against https://infinitecodetech.com/: info@infinitecodetech.com, +880 1837686860, and Kazir Dewri, Chittagong 4000, Bangladesh. Phone, email, WhatsApp and official social links are actionable. Customization and admin messaging remain demo previews. The contact form does not send messages. Reviews, statistics, prices, delivery policies, catalog descriptions and sample orders are demo content, not claims about ICT's real business. No products, product swatch colors, product layouts or commerce logic were changed.
 
 Original third-party image URLs and Google Fonts are retained. They require internet access; image licensing, availability and embedded watermarks have not been verified. The uploaded source does not contain those remote image files.
 
 ## Branding
 
-Navy #0B1E38, Slate Navy #1E3A5F, Slate Dark #475569, Olive #4B602D, Gold #BF9B30, Canvas #F8FAF6 / #F8F9FA. Gold surfaces use navy text for readability; selected light-surface accent text uses olive. Existing fonts, spacing, animation rules and responsive breakpoints are retained.
+The official site's CSS and rendered styles were inspected on 2026-09-23 and rechecked on 2026-09-24. Primary olive #4E6829, hover #3A4F1B, edge #637C35; white #FFFFFF, surface #F8FAF2, inset #F2F6E8, hover surface #EDF3DA; text #1A2410, secondary #3A5018, muted #5A6E3A; gold #8A6D0B and #B08D14. Borders use translucent olive (#4E68291F / #4E682938). Existing semantic error/success colors and garment swatches are preserved.
+
+Typography follows the official CSS stacks: Syne / sans-serif headings, DM Sans / sans-serif body, and Space Mono / monospace utility text, loaded from Google Fonts without committing font binaries. Controls use 6px/12px corners and cards 20px corners. `src/brand.css` applies the brand treatment without replacing existing layouts, motion or responsive breakpoints. `public/ict-logo.png` is the unchanged official https://infinitecodetech.com/logo.png asset, used as the base-aware favicon. Header and footer use text wordmarks; no new logo was invented.
