@@ -1,3 +1,4 @@
+import brandCSS from './brand.css?inline';
 import { useState, useEffect, useRef, useCallback } from "react";
 
 /* ─────────────────────────────────────────────────────────
@@ -209,7 +210,7 @@ const INIT_ORDERS = [
    HELPERS
 ───────────────────────────────────────────────────────── */
 function previewInquiry(subject) {
-  window.alert(`${subject} — demonstration only. No message is sent; contact details have not been provided.`);
+  window.alert(`${subject} — demonstration only. No message is sent. For company inquiries, contact info@infinitecodetech.com.`);
 }
 
 function getLabel(type, id) {
@@ -241,27 +242,26 @@ function useInView(threshold=0.15) {
    CSS
 ───────────────────────────────────────────────────────── */
 const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--blk); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
 :root {
-  --blk: #0B1E38;
-  --dark: #1E3A5F;
-  --ch: #475569;
-  --mid: #475569;
-  --lt: #999;
-  --brd: #e0e0e0;
-  --bg: #F8FAF6;
+  --blk: #1A2410;
+  --dark: #2A3813;
+  --ch: #3A5018;
+  --mid: #5A6E3A;
+  --lt: #5A6E3A;
+  --brd: #4E682938;
+  --bg: #F8FAF2;
   --wh: #fff;
-  --gold: #BF9B30;
-  --gold2: #D0B35F;
-  --goldp: #F8F9FA;
+  --gold: #8A6D0B;
+  --gold2: #B08D14;
+  --goldp: #F2F6E8;
   --red: #c0392b;
   --grn: #1e7e4a;
-  --olive: #4B602D;
+  --olive: #4E6829;
 }
 
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
@@ -301,7 +301,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .nav { background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--brd); position: sticky; top: 0; z-index: 800; transition: box-shadow .3s; }
 .nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.1); }
 .nav-w { max-width: 1380px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; height: 68px; gap: 0; }
-.nav-logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--blk); cursor: pointer; flex-shrink: 0; letter-spacing: 3px; transition: opacity .2s; }
+.nav-logo { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 900; color: var(--blk); cursor: pointer; flex-shrink: 0; letter-spacing: 3px; transition: opacity .2s; }
 .nav-logo:hover { opacity: .75; }
 .nav-logo em { color: var(--gold); font-style: normal; }
 .nav-cats { display: flex; gap: 0; flex: 1; padding-left: 32px; }
@@ -340,7 +340,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .drw { position: fixed; top: 0; left: 0; width: 310px; height: 100%; background: #fff; z-index: 1501; transform: translateX(-100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow-y: auto; }
 .drw.open { transform: translateX(0); }
 .drw-head { padding: 20px 22px; border-bottom: 1px solid var(--brd); display: flex; justify-content: space-between; align-items: center; }
-.drw-logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; letter-spacing: 2px; }
+.drw-logo { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 900; letter-spacing: 2px; }
 .drw-close { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--mid); transition: color .2s, transform .2s; }
 .drw-close:hover { color: var(--blk); transform: rotate(90deg); }
 .drw-sec { border-bottom: 1px solid var(--brd); }
@@ -359,7 +359,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .hero-body { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 90px; }
 .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
 .hero-tag-line { width: 30px; height: 1.5px; background: var(--gold); }
-.hero-title { font-family: 'Playfair Display', serif; font-size: 62px; font-weight: 900; color: #fff; line-height: 1.08; margin-bottom: 16px; max-width: 600px; }
+.hero-title { font-family: 'Syne', sans-serif; font-size: 62px; font-weight: 900; color: #fff; line-height: 1.08; margin-bottom: 16px; max-width: 600px; }
 .hero-sub { font-size: 16px; color: rgba(255,255,255,.75); font-weight: 300; line-height: 1.7; margin-bottom: 32px; max-width: 420px; }
 .hero-cta { display: inline-flex; align-items: center; gap: 12px; background: var(--gold); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; padding: 15px 36px; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: background .25s, transform .2s, box-shadow .25s; width: fit-content; }
 .hero-cta:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(191,155,48,.4); }
@@ -383,7 +383,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .sec-hd { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; gap: 16px; flex-wrap: wrap; }
 .sec-eye { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
 .sec-eye::before { content:''; width:20px; height:1.5px; background:var(--gold); }
-.sec-tit { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--blk); line-height: 1.15; }
+.sec-tit { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; color: var(--blk); line-height: 1.15; }
 .see-all { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blk); cursor: pointer; border: none; background: none; border-bottom: 1.5px solid var(--blk); padding-bottom: 2px; font-family: 'DM Sans', sans-serif; transition: color .2s, border-color .2s; white-space: nowrap; }
 .see-all:hover { color: var(--gold); border-color: var(--gold); }
 
@@ -431,7 +431,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .ccard-ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.1) 55%); transition: opacity .3s; }
 .ccard-body { position: absolute; bottom: 26px; left: 26px; transition: bottom .3s cubic-bezier(.4,0,.2,1); }
 .ccard:hover .ccard-body { bottom: 34px; }
-.ccard-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.ccard-name { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 3px; }
 .ccard-subs { font-size: 12px; color: rgba(255,255,255,.75); margin-bottom: 12px; }
 .ccard-btn { font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: #fff; border: 1.5px solid rgba(255,255,255,.65); padding: 7px 16px; background: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 600; transition: all .25s; }
 .ccard-btn:hover { background: #fff; color: var(--blk); }
@@ -448,7 +448,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
 .stat-item { text-align: center; padding: 16px; border-right: 1px solid rgba(255,255,255,.1); }
 .stat-item:last-child { border-right: none; }
-.stat-num { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+.stat-num { font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px; }
 .stat-lbl { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.6); font-weight: 500; }
 
 /* ── WHOLESALE ── */
@@ -457,7 +457,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .ws-inner { position: relative; z-index: 1; }
 .ws-eye { font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; }
 .ws-eye::before,.ws-eye::after { content:''; width:24px; height:1.5px; background:var(--gold); }
-.ws-tit { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.ws-tit { font-family: 'Syne', sans-serif; font-size: 46px; font-weight: 700; color: #fff; margin-bottom: 14px; }
 .ws-sub { font-size: 16px; color: rgba(255,255,255,.65); font-weight: 300; max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
 .ws-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn-gold { background: var(--gold); color: #fff; border: none; padding: 14px 32px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 600; transition: all .25s; }
@@ -473,14 +473,14 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .wcard:hover::before { transform: scaleX(1); }
 .wico { width: 52px; height: 52px; background: var(--goldp); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 22px; transition: transform .3s; }
 .wcard:hover .wico { transform: scale(1.1) rotate(5deg); }
-.wtit { font-size: 15px; font-weight: 600; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+.wtit { font-size: 15px; font-weight: 600; margin-bottom: 8px; font-family: 'Syne', sans-serif; }
 .wtxt { font-size: 13.5px; color: var(--mid); line-height: 1.7; }
 
 /* ── TESTIMONIALS ── */
 .tgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
 .tcard { background: #fff; padding: 28px; border: 1px solid var(--brd); transition: transform .3s, box-shadow .3s; position: relative; }
 .tcard:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.1); }
-.tcard::before { content:'"'; position:absolute; top:14px; right:20px; font-family:'Playfair Display',serif; font-size:60px; color:var(--goldp); line-height:1; }
+.tcard::before { content:'"'; position:absolute; top:14px; right:20px; font-family:'Syne',sans-serif; font-size:60px; color:var(--goldp); line-height:1; }
 .tstars { color: var(--gold); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
 .ttxt { font-size: 14px; color: var(--ch); line-height: 1.8; margin-bottom: 16px; font-style: italic; }
 .tauth { font-size: 14px; font-weight: 600; }
@@ -498,7 +498,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 
 /* ── CONTACT ── */
 .cg { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start; }
-.cs-tit { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
+.cs-tit { font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
 .cs-txt { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 28px; }
 .crow { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
 .cico { color: var(--gold); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
@@ -519,7 +519,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 /* ── FOOTER ── */
 .footer { background: #0B1E38; color: #fff; padding: 64px 0 0; }
 .fgrid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr; gap: 52px; margin-bottom: 52px; }
-.flogo { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; margin-bottom: 12px; letter-spacing: 2px; }
+.flogo { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 900; margin-bottom: 12px; letter-spacing: 2px; }
 .flogo em { color: var(--gold); font-style: normal; }
 .fdesc { font-size: 13.5px; color: rgba(255,255,255,.5); line-height: 1.8; max-width: 270px; margin-bottom: 20px; }
 .fsocial { display: flex; gap: 8px; }
@@ -545,7 +545,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 
 /* ── PAGE HEADER ── */
 .phdr { background: var(--blk); color: #fff; padding: 48px 0 36px; }
-.phdr-tit { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; margin-bottom: 6px; }
+.phdr-tit { font-family: 'Syne', sans-serif; font-size: 42px; font-weight: 700; margin-bottom: 6px; }
 .phdr-sub { font-size: 13px; color: rgba(255,255,255,.5); }
 .bc { display: flex; gap: 8px; align-items: center; font-size: 12.5px; margin-bottom: 12px; flex-wrap: wrap; }
 .bci { color: rgba(255,255,255,.5); cursor: pointer; transition: color .2s; }
@@ -578,14 +578,14 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .pd-thumb { width: 74px; height: 90px; object-fit: cover; cursor: pointer; border: 2px solid transparent; transition: border-color .2s, transform .2s; border-radius: 2px; }
 .pd-thumb.on { border-color: var(--blk); }
 .pd-thumb:hover { transform: scale(1.04); }
-.pd-tit { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; }
+.pd-tit { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; }
 .pd-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
 .pd-stars { color: var(--gold); font-size: 15px; letter-spacing: 1px; }
 .pd-rcnt { font-size: 13px; color: var(--mid); }
 .pd-stkin { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grn); }
 .pd-stklo { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #e67e22; }
 .pd-prow { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-.pd-now { font-size: 32px; font-weight: 700; font-family: 'Playfair Display', serif; }
+.pd-now { font-size: 32px; font-weight: 700; font-family: 'Syne', sans-serif; }
 .pd-was { font-size: 19px; color: var(--lt); text-decoration: line-through; }
 .pd-save { font-size: 12px; background: #fef0f0; color: var(--red); padding: 3px 10px; font-weight: 600; border-radius: 12px; }
 .pd-lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ch); margin-bottom: 10px; }
@@ -633,7 +633,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .cart-rm { font-size: 12px; color: var(--red); cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; text-decoration: underline; padding: 0; transition: color .2s; }
 .cart-rm:hover { color: #8b0000; }
 .osbox { background: var(--bg); padding: 26px; position: sticky; top: 88px; border-radius: 2px; }
-.ostit { font-size: 15px; font-weight: 700; margin-bottom: 18px; font-family: 'Playfair Display', serif; font-size: 18px; }
+.ostit { font-size: 15px; font-weight: 700; margin-bottom: 18px; font-family: 'Syne', sans-serif; font-size: 18px; }
 .osrow { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; border-bottom: 1px solid var(--brd); }
 .osrow.tot { font-weight: 700; font-size: 16px; border-bottom: none; margin-top: 4px; padding-top: 13px; }
 .osrow.dis { color: var(--grn); }
@@ -668,13 +668,13 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .suc-ov { position: fixed; inset: 0; background: rgba(0,0,0,.65); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; animation: fadeIn .3s ease; }
 .suc-box { background: #fff; padding: 52px 44px; text-align: center; max-width: 460px; width: 100%; animation: scaleIn .35s ease; }
 .suc-ico { font-size: 56px; color: var(--grn); margin-bottom: 16px; animation: float 2s ease-in-out infinite; display: block; }
-.suc-tit { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; margin-bottom: 9px; }
+.suc-tit { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 9px; }
 .suc-txt { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 26px; }
 
 /* ── ADMIN ── */
 .adm-lay { display: flex; min-height: 100vh; }
 .adm-side { width: 252px; background: #2c2c2c; color: #fff; flex-shrink: 0; position: fixed; top: 0; bottom: 0; left: 0; overflow-y: auto; z-index: 200; }
-.adm-slogo { padding: 22px 20px 18px; border-bottom: 1px solid rgba(255,255,255,.07); font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; line-height: 1; letter-spacing: 2px; }
+.adm-slogo { padding: 22px 20px 18px; border-bottom: 1px solid rgba(255,255,255,.07); font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 900; line-height: 1; letter-spacing: 2px; }
 .adm-slogo em { color: var(--gold); font-style: normal; }
 .adm-slogo small { display: block; font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.28); font-family: 'DM Sans', sans-serif; margin-top: 3px; font-weight: 400; }
 .adm-ni { display: flex; align-items: center; gap: 11px; padding: 12px 20px; font-size: 13.5px; color: rgba(255,255,255,.6); cursor: pointer; transition: all .2s; border-left: 3px solid transparent; }
@@ -684,14 +684,14 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
 .adm-nsec { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.22); padding: 14px 20px 5px; font-weight: 600; }
 .adm-con { margin-left: 252px; flex: 1; background: #f4f3f1; min-height: 100vh; }
 .adm-top { background: #fff; padding: 14px 28px; border-bottom: 1px solid var(--brd); display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-.adm-top-tit { font-size: 17px; font-weight: 700; font-family: 'Playfair Display', serif; }
+.adm-top-tit { font-size: 17px; font-weight: 700; font-family: 'Syne', sans-serif; }
 .adm-usr { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--mid); }
 .adm-av { width: 32px; height: 32px; border-radius: 50%; background: var(--blk); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
 .adm-main { padding: 24px 28px; }
 .adm-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 22px; }
 .adm-stat { background: #fff; padding: 20px; border-left: 4px solid var(--gold); transition: transform .2s, box-shadow .2s; }
 .adm-stat:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-.adm-sv { font-size: 26px; font-weight: 700; margin-bottom: 3px; line-height: 1; font-family: 'Playfair Display', serif; }
+.adm-sv { font-size: 26px; font-weight: 700; margin-bottom: 3px; line-height: 1; font-family: 'Syne', sans-serif; }
 .adm-sl { font-size: 10.5px; color: var(--lt); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; }
 .adm-sc { font-size: 12px; color: var(--grn); margin-top: 5px; font-weight: 500; }
 .adm-card { background: #fff; border: 1px solid var(--brd); margin-bottom: 20px; border-radius: 2px; }
@@ -825,14 +825,7 @@ body { font-family: 'DM Sans', sans-serif; background: #fff; color: #0B1E38; -we
   .hero-title { font-size: 24px; }
 }
 
-/* ICT brand contrast: color-only overrides; layout and motion preserved. */
-.hero-cta, .btn-gold, .cbadge, .faq-ico.open, .ckstep.on .cknum,
-.pcbtn:hover, .pcbtn.b2:hover, .fsub:hover, .ftoggle:hover,
-.sbtn.cust:hover, .btn-buy:hover, .cpbtn:hover, .ckbtn:hover,
-.placebtn:hover:not(:disabled), .abtn:not(.red):hover { color: var(--blk); }
-.sec-eye, .nmitem:hover, .drw-sechead:hover, .drw-item:hover,
-.see-all:hover, .faq-q:hover, .sbtn.cust { color: var(--olive); }
-`;
+` + brandCSS;
 
 /* ─────────────────────────────────────────────────────────
    ANIMATED SECTION WRAPPER
@@ -930,7 +923,7 @@ function Navbar({ navigate, page, cart, products }) {
       <nav className={`nav${scrolled ? " scrolled" : ""}`}>
         <div className="nav-w">
           <button className="hbg" onClick={() => setOpen(true)}>☰</button>
-          <div className="nav-logo" onClick={() => navigate("home")}>ICT<em>.</em></div>
+          <div className="nav-logo" onClick={() => navigate("home")}><span className="wordmark-full">Infinite Code <em>Tech</em></span><span className="wordmark-compact">ICT</span></div>
           <div className="nav-cats">
             {CATALOG.map(cat => (
               <div key={cat.id} className="nav-cat">
@@ -983,7 +976,7 @@ function Navbar({ navigate, page, cart, products }) {
       <div className={`drw-bg${open ? " open" : ""}`} onClick={() => setOpen(false)} />
       <div className={`drw${open ? " open" : ""}`}>
         <div className="drw-head">
-          <div className="drw-logo">ICT<em style={{ color: "var(--gold)", fontStyle: "normal" }}>.</em></div>
+          <div className="drw-logo">ICT</div>
           <button className="drw-close" onClick={() => setOpen(false)}>✕</button>
         </div>
         {CATALOG.map(cat => (
@@ -1023,10 +1016,10 @@ function Footer({ navigate }) {
       <div className="ctr">
         <div className="fgrid">
           <AnimSection>
-            <div className="flogo">Infinite Code Tech<em>.</em></div>
+            <div className="flogo">Infinite Code <em>Tech</em></div>
             <div className="fdesc">A fashion e-commerce prototype by Infinite Code Tech. Explore the shopping experience in this demonstration.</div>
             <div className="fsocial">
-              {["f", "in", "yt", "wa"].map(s => <button key={s} className="fsoc">{s}</button>)}
+              {[["web", "Official website", "https://infinitecodetech.com/"], ["in", "LinkedIn", "https://linkedin.com/company/infinitecodetech"], ["gh", "GitHub", "https://github.com/infinitecodetech-2026"], ["wa", "WhatsApp", "https://wa.me/8801837686860"]].map(([label, name, href]) => <a key={label} className="fsoc" href={href} aria-label={name} target="_blank" rel="noopener noreferrer">{label}</a>)}
             </div>
           </AnimSection>
           <AnimSection delay={0.1}>
@@ -1039,10 +1032,10 @@ function Footer({ navigate }) {
           </AnimSection>
           <AnimSection delay={0.3}>
             <div className="fhead">Contact</div>
-            <div className="fcon"><span className="fcico">◎</span><span className="fcval">Infinite Code Tech · Demo Showcase</span></div>
-            <div className="fcon"><span className="fcico">◎</span><span className="fcval">Phone not provided</span></div>
-            <div className="fcon"><span className="fcico">◎</span><span className="fcval">Contact details · Demo only</span></div>
-            <div style={{ marginTop: 14, fontSize: 12, color: "rgba(255,255,255,.35)" }}>For demonstration purposes</div>
+            <div className="fcon"><span className="fcico">◎</span><span className="fcval">Kazir Dewri, Chittagong 4000, Bangladesh</span></div>
+            <div className="fcon"><span className="fcico">◎</span><a className="fcval" href="tel:+8801837686860">+880 1837686860</a></div>
+            <div className="fcon"><span className="fcico">◎</span><a className="fcval" href="mailto:info@infinitecodetech.com">info@infinitecodetech.com</a></div>
+            <div style={{ marginTop: 14, fontSize: 12, color: "var(--mid)" }}>Company contact · Fashion demo only</div>
           </AnimSection>
         </div>
       </div>
@@ -1217,7 +1210,7 @@ function HomePage({ navigate, products, banners, addToCart, buyNow }) {
               <h2 className="ws-tit">Wholesale Inquiries</h2>
               <p className="ws-sub">Explore a sample wholesale shopping experience in this fashion e-commerce demo by Infinite Code Tech.</p>
               <div className="ws-btns">
-                <button className="btn-gold" onClick={() => previewInquiry("Wholesale inquiry")}>WhatsApp Us</button>
+                <a className="btn-gold" href="https://wa.me/8801837686860" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                 <button className="btn-ol">Get a Quote</button>
               </div>
             </AnimSection>
@@ -1310,10 +1303,10 @@ function HomePage({ navigate, products, banners, addToCart, buyNow }) {
               <div>
                 <div className="sec-eye">Get in Touch</div>
                 <div className="cs-tit">We're Here to Help</div>
-                <div className="cs-txt">Have a question about an order, product, or wholesale pricing? Our team is ready to assist you through any channel below.</div>
-                <div className="crow"><span className="cico">◎</span><span className="cval">Infinite Code Tech · Demo Showcase</span></div>
-                <div className="crow"><span className="cico">◎</span><span className="cval">Phone not provided</span></div>
-                <div className="crow"><span className="cico">◎</span><span className="cval">Contact details · Demo only</span></div>
+                <div className="cs-txt">Contact Infinite Code Tech about this fashion e-commerce demo or your own project. Shopping and order interactions on this site are demonstrations.</div>
+                <div className="crow"><span className="cico">◎</span><span className="cval">Kazir Dewri, Chittagong 4000, Bangladesh</span></div>
+                <div className="crow"><span className="cico">◎</span><a className="cval" href="tel:+8801837686860">+880 1837686860</a></div>
+                <div className="crow"><span className="cico">◎</span><a className="cval" href="mailto:info@infinitecodetech.com">info@infinitecodetech.com</a></div>
               </div>
             </AnimSection>
             <AnimSection dir="left">
@@ -1332,7 +1325,7 @@ function ContactForm() {
   if (sent) return (
     <div style={{ padding: 44, textAlign: "center", background: "#fff", border: "1px solid var(--brd)", animation: "scaleIn .4s ease" }}>
       <div style={{ fontSize: 44, color: "var(--grn)", marginBottom: 12, animation: "float 2s ease-in-out infinite", display: "block" }}>✓</div>
-      <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 24, fontWeight: 700, marginBottom: 7 }}>Demo Message Previewed!</div>
+      <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 24, fontWeight: 700, marginBottom: 7 }}>Demo Message Previewed!</div>
       <div style={{ fontSize: 14, color: "var(--mid)" }}>Demonstration only — no message has been sent.</div>
     </div>
   );
@@ -1715,7 +1708,7 @@ function CheckoutPage({ navigate, cart, setCart, params = {}, coupons }) {
         <div className="ckgrid">
           <AnimSection dir="right">
             <div>
-              <div style={{ fontFamily:"'Playfair Display',serif", fontSize:26, fontWeight:700, marginBottom:22 }}>Delivery Information</div>
+              <div style={{ fontFamily:"'Syne',sans-serif", fontSize:26, fontWeight:700, marginBottom:22 }}>Delivery Information</div>
               <div className="frow">
                 <div className="fg"><label className="fl">Full Name *</label><input className="fi" required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="Your full name" /></div>
                 <div className="fg"><label className="fl">Phone Number *</label><input className="fi" required value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} placeholder="01XXXXXXXXX" /></div>
@@ -1733,7 +1726,7 @@ function CheckoutPage({ navigate, cart, setCart, params = {}, coupons }) {
               </div>
               <div className="fg"><label className="fl">Order Notes</label><textarea className="fi" style={{minHeight:70}} value={form.notes} onChange={e=>setForm({...form,notes:e.target.value})} placeholder="Special requests..." /></div>
 
-              <div style={{fontFamily:"'Playfair Display',serif",fontSize:26,fontWeight:700,margin:"26px 0 14px"}}>Payment Method</div>
+              <div style={{fontFamily:"'Syne',sans-serif",fontSize:26,fontWeight:700,margin:"26px 0 14px"}}>Payment Method</div>
               <div className={`payopt${pay==="cod"?" on":""}`} onClick={()=>setPay("cod")}>
                 <div className={`pradio${pay==="cod"?" on":""}`}><div className="pradio-dot"/></div>
                 <div><div style={{fontWeight:600,fontSize:14}}>Cash on Delivery</div><div style={{fontSize:12.5,color:"var(--mid)"}}>Pay with cash when your order arrives</div></div>
@@ -2186,7 +2179,7 @@ function AdminPage({ navigate, products, setProducts, banners, setBanners, coupo
               <div className="adm-cb">
                 {CATALOG.map(cat=>(
                   <div key={cat.id} style={{marginBottom:22,background:"var(--bg)",padding:16,border:"1px solid var(--brd)"}}>
-                    <div style={{fontFamily:"'Playfair Display',serif",fontSize:18,fontWeight:700,marginBottom:11}}>
+                    <div style={{fontFamily:"'Syne',sans-serif",fontSize:18,fontWeight:700,marginBottom:11}}>
                       {cat.label} <span style={{fontSize:12,fontWeight:400,color:"var(--mid)",fontFamily:"'DM Sans',sans-serif"}}>({products.filter(p=>p.cat===cat.id).length} products)</span>
                     </div>
                     {cat.subs.map(sub=>(
